@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
     public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
@@ -39,5 +39,12 @@ public class EmployeeServiceImpl implements EmployeeService{
                         emp.getEmail()))
                 .toList();
         return employees;
+    }
+
+    @Override
+    public boolean deleteEmployee(Long id) {
+        EmployeeEntity employee = employeeRepository.findById(id).get();
+        employeeRepository.delete(employee);
+        return true;
     }
 }
