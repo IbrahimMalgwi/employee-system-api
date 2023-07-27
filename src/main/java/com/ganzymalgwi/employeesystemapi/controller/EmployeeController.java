@@ -31,6 +31,7 @@ public class EmployeeController {
         return  employeeService.getAllEmployees();
     }
 
+
     @DeleteMapping("/employees/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteEmployee( @PathVariable Long id){
         boolean deleted = false;
@@ -40,6 +41,7 @@ public class EmployeeController {
         return ResponseEntity.ok(response);
     }
 
+    //Get users
     @GetMapping("/employees/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id){
         Employee employee = null;
