@@ -35,7 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService{
                         emp.getId(),
                         emp.getFirstName(),
                         emp.getLastName(),
-                        emp.getEmail()))
+                        emp.getEmailId()))
                 .toList();
         return employees;
     }
@@ -60,7 +60,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         EmployeeEntity employeeEntity = employeeRepository.findById(id).get();
         employeeEntity.setFirstName(employee.getFirstName());
         employeeEntity.setLastName(employee.getLastName());
-        employeeEntity.setEmail(employee.getEmail());
+        employeeEntity.setEmailId(employee.getEmailId());
 
         employeeRepository.save(employeeEntity);
         return employee;

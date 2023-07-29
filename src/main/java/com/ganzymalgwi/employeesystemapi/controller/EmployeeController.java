@@ -41,7 +41,6 @@ public class EmployeeController {
         return ResponseEntity.ok(response);
     }
 
-    //Get users
     @GetMapping("/employees/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id){
         Employee employee = null;
